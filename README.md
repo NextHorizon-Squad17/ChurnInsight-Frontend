@@ -52,6 +52,8 @@ Bash
 ├── style.css       # Animações customizadas (keyframes) e scrollbar
 ├── script.js       # Lógica do MockDB, UI e Motor de IA
 └── README.md       # Documentação do projeto
+
+
 🚀 Como Rodar o Projeto
 Como o projeto utiliza Tailwind via CDN e JavaScript puro, não é necessário instalar dependências (Node.js, NPM, etc).
 
@@ -91,15 +93,7 @@ Este projeto está sob a licença MIT. Sinta-se livre para usar, modificar e apr
 
 <p align="center"> Desenvolvido com 💙 e Código Limpo. </p>
 
-
-
-
-
-
-
 focado em frontend
-
-
 
 Mostrar raciocínio
 Com certeza. O foco no Front-End é o ponto forte deste projeto, pois ele demonstra domínio sobre DOM, reatividade, design systems e UX sem depender de frameworks pesados (como React ou Vue), usando apenas o poder do navegador (Vanilla JS + Tailwind).
@@ -189,6 +183,7 @@ Local Storage (para persistência de tema Dark/Light).
 CSS3 Animations: Keyframes customizados (@keyframes) para efeitos de entrada e pulse.
 
 📂 Estrutura do Código
+
 Bash
 
 /src
@@ -199,6 +194,8 @@ Bash
     ├── MockDB      # Camada de Dados (Model)
     ├── App Logic   # Camada de Controle (Controller)
     └── Renderers   # Camada de Visualização (View Components)
+
+
 🚀 Como Executar
 Simples, leve e rápido. Sem npm install.
 
