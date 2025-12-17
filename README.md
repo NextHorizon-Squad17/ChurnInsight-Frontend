@@ -9,6 +9,8 @@ Este projeto é uma Simulação de Dashboard de Inteligência Artificial focado 
 Nota: O design apresenta um tema Dark Mode profundo com efeitos de glassmorphism (vidro) e gradientes neon para destacar métricas críticas.
 
 ✨ Funcionalidades Principais
+
+
 🎨 1. UX & UI Imersiva 
 Tema "Deep Space": Fundo azul-meia-noite (midnight) com sombras de luz (glow effects) para criar profundidade.
 
