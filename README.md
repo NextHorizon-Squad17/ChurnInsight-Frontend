@@ -1,7 +1,7 @@
-🚀 Next Horizon | Enterprise AI Dashboard (v3.0)
+🚀 Next Horizon | Enterprise AI Dashboard 
 "Onde a estética imersiva encontra a clareza de dados."
 
-Este projeto é uma Simulação de Dashboard de Inteligência Artificial focado na predição de Churn (cancelamento) para empresas de telecomunicações. Esta é a Versão 3 (Definitiva), que une a estética "Deep Space" (v1) com a lógica de visualização de dados "Hybrid Premium" (v2), resultando em uma interface rica, moderna e altamente funcional.
+Este projeto é uma Simulação de Dashboard de Inteligência Artificial focado na predição de Churn (cancelamento) para empresas de telecomunicações. 
 
 📸 Demonstração Visual
 (Espaço reservado para colocar um print da tela inicial e do dashboard)
@@ -9,7 +9,7 @@ Este projeto é uma Simulação de Dashboard de Inteligência Artificial focado 
 Nota: O design apresenta um tema Dark Mode profundo com efeitos de glassmorphism (vidro) e gradientes neon para destacar métricas críticas.
 
 ✨ Funcionalidades Principais
-🎨 1. UX & UI Imersiva (Fusão v1 + v2)
+🎨 1. UX & UI Imersiva 
 Tema "Deep Space": Fundo azul-meia-noite (midnight) com sombras de luz (glow effects) para criar profundidade.
 
 Animações Suaves: Transições de entrada (fade-in-up), velocímetros animados e elementos flutuantes 3D.
@@ -57,7 +57,7 @@ Clone o repositório (ou baixe os arquivos):
 
 Bash
 
-git clone https://github.com/seu-usuario/next-horizon.git
+git clone https://github.com/NextHorizon-Squad17/ChurnInsight-Frontend.git
 Abra o arquivo index.html:
 
 Basta dar um clique duplo no arquivo para abrir no seu navegador padrão (Chrome, Edge, Firefox).
