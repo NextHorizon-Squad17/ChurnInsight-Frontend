@@ -32,7 +32,7 @@ O código segue padrões modernos de desenvolvimento Front-End sem a necessidade
 1. Gestão de Estado (State Management)
 Embora não use Redux ou Context API, implementei um padrão de gerenciamento de estado local simples e reativo:
 
-JavaScript
+'''JavaScript
 
 const app = {
     state: {
@@ -45,11 +45,11 @@ const app = {
         this.renderDashboard(); // Reatividade manual
     }
 };
+'''
 2. Componentização via Template Strings
 Ao invés de JSX, utilizei o poder das Template Strings (ES6) para criar componentes funcionais puros que retornam HTML dinâmico, facilitando a manutenção e leitura:
 
-
-JavaScript
+'''JavaScript
 
 // Exemplo de Componente Funcional em Vanilla JS
 renderCustomerMetrics(c) {
@@ -59,6 +59,8 @@ renderCustomerMetrics(c) {
         </div>
     `;
 }
+'''
+
 3. Mock Database & Assincronismo
 Simulação de um backend RESTful utilizando Promises e setTimeout para criar uma experiência realista de latência de rede e estados de carregamento (Loading Spinners):
 
@@ -86,7 +88,7 @@ CSS3 Animations: Keyframes customizados (@keyframes) para efeitos de entrada e p
 
 📂 Estrutura do Código
 
-Bash
+'''Bash
 
 /src
 │
@@ -96,19 +98,20 @@ Bash
     ├── MockDB      # Camada de Dados (Model)
     ├── App Logic   # Camada de Controle (Controller)
     └── Renderers   # Camada de Visualização (View Components)
-
+'''
 🚀 Como Executar
 
 Simples, leve e rápido. Sem npm install.
 
-Clone o repositório.
+1. Clone o repositório. [https://github.com/NextHorizon-Squad17/ChurnInsight-Frontend.git]
 
-Abra o index.html em qualquer navegador moderno.
+2. Abra o index.html em qualquer navegador moderno.
 
-(Opcional) Use a extensão "Live Server" no VSCode para hot-reload.
+3. (Opcional) Use a extensão "Live Server" no VSCode para hot-reload.
 
 
 🔮 Melhorias Front-End Futuras
+
 [ ] Refatoração para React ou Vue.js para escalabilidade de componentes.
 
 [ ] Adição de TypeScript para tipagem forte das entidades de Cliente.
