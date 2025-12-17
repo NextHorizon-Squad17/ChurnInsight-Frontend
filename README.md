@@ -1,10 +1,14 @@
 🚀 Next Horizon | Enterprise AI Dashboard (Front-End Demo)
 
+
 "Uma demonstração de arquitetura Front-End limpa, reatividade manual e UX imersiva sem dependências complexas."
+
 
 Este projeto é uma SPA (Single Page Application) simulada, focada na visualização de dados e interatividade para um painel de Inteligência Artificial Corporativa. O objetivo técnico foi unir a estética "Deep Space" com a clareza de dados ("Data Visualization"), criando uma experiência fluida usando apenas JavaScript Puro (Vanilla ES6+) e Tailwind CSS.
 
+
 🎨 Destaques de UX/UI (Front-End)
+
 
 A interface foi construída pensando na Psicologia das Cores e na Hierarquia Visual:
 
@@ -32,7 +36,9 @@ O código segue padrões modernos de desenvolvimento Front-End sem a necessidade
 1. Gestão de Estado (State Management)
 Embora não use Redux ou Context API, implementei um padrão de gerenciamento de estado local simples e reativo:
 
-'''JavaScript
+```
+
+JavaScript
 
 const app = {
     state: {
@@ -45,11 +51,17 @@ const app = {
         this.renderDashboard(); // Reatividade manual
     }
 };
-'''
+
+```
+
+
 2. Componentização via Template Strings
 Ao invés de JSX, utilizei o poder das Template Strings (ES6) para criar componentes funcionais puros que retornam HTML dinâmico, facilitando a manutenção e leitura:
 
-'''JavaScript
+
+```
+
+JavaScript
 
 // Exemplo de Componente Funcional em Vanilla JS
 renderCustomerMetrics(c) {
@@ -59,7 +71,10 @@ renderCustomerMetrics(c) {
         </div>
     `;
 }
-'''
+
+
+```
+
 
 3. Mock Database & Assincronismo
 Simulação de um backend RESTful utilizando Promises e setTimeout para criar uma experiência realista de latência de rede e estados de carregamento (Loading Spinners):
@@ -67,6 +82,7 @@ Simulação de um backend RESTful utilizando Promises e setTimeout para criar um
 Métodos: create, update, delete.
 
 Simulação de latência de IA (1.5s) para gerar "suspense" na UX.
+
 
 💻 Tecnologias & Ferramentas
 
@@ -86,9 +102,12 @@ Local Storage (para persistência de tema Dark/Light).
 
 CSS3 Animations: Keyframes customizados (@keyframes) para efeitos de entrada e pulse.
 
+
 📂 Estrutura do Código
 
-'''Bash
+```
+
+Bash
 
 /src
 │
@@ -98,8 +117,12 @@ CSS3 Animations: Keyframes customizados (@keyframes) para efeitos de entrada e p
     ├── MockDB      # Camada de Dados (Model)
     ├── App Logic   # Camada de Controle (Controller)
     └── Renderers   # Camada de Visualização (View Components)
-'''
+
+```
+
+
 🚀 Como Executar
+
 
 Simples, leve e rápido. Sem npm install.
 
@@ -108,6 +131,7 @@ Simples, leve e rápido. Sem npm install.
 2. Abra o index.html em qualquer navegador moderno.
 
 3. (Opcional) Use a extensão "Live Server" no VSCode para hot-reload.
+
 
 
 🔮 Melhorias Front-End Futuras
