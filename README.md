@@ -1,147 +1,95 @@
-🚀 Next Horizon | Enterprise AI Dashboard (Front-End Demo)
+# 🚀 Next Horizon - Frontend
 
+Bem-vindo ao repositório frontend do **Next Horizon**, uma aplicação focada na previsão e análise de *churn* de clientes para empresas de telecomunicações. Este projeto consome dados de inteligência artificial para fornecer insights visuais e estratégicos.
 
-"Uma demonstração de arquitetura Front-End limpa, reatividade manual e UX imersiva sem dependências complexas."
+## 📋 Sobre o Projeto
 
+O **Next Horizon** é um dashboard interativo desenvolvido para auxiliar gestores na tomada de decisão. A interface permite o gerenciamento de usuários e a visualização de métricas preditivas geradas por modelos de Data Science.
 
-Este projeto é uma SPA (Single Page Application) simulada, focada na visualização de dados e interatividade para um painel de Inteligência Artificial Corporativa. O objetivo técnico foi unir a estética "Deep Space" com a clareza de dados ("Data Visualization"), criando uma experiência fluida usando apenas JavaScript Puro (Vanilla ES6+) e Tailwind CSS.
+### Funcionalidades Atuais
+* **Autenticação Segura:** Sistema de Login e contexto de autenticação global.
+* **Rotas Protegidas:** Controle de acesso a páginas privadas (Dashboard, Registro).
+* **Navegação:** Roteamento via React Router Dom.
+* **Interface Moderna:** Estilização responsiva e ágil com Tailwind CSS.
+* **Tipagem Estrita:** Código robusto e escalável utilizando TypeScript.
 
+## 🛠️ Tecnologias Utilizadas
 
-🎨 Destaques de UX/UI (Front-End)
+Este projeto foi desenvolvido com as seguintes tecnologias:
 
+* **[React](https://reactjs.org/)** (v18) - Biblioteca para construção de interfaces.
+* **[Vite](https://vitejs.dev/)** - Build tool e servidor de desenvolvimento ultra-rápido.
+* **[TypeScript](https://www.typescriptlang.org/)** - Superset JavaScript para tipagem estática.
+* **[Tailwind CSS](https://tailwindcss.com/)** - Framework de utilitários CSS.
+* **[React Router Dom](https://reactrouter.com/)** - Gerenciamento de rotas.
 
-A interface foi construída pensando na Psicologia das Cores e na Hierarquia Visual:
+## 📂 Estrutura do Projeto
 
-Glassmorphism & Profundidade: Uso intensivo de backdrop-filter: blur, bordas semitransparentes e sombras de luz (glow) para criar camadas visuais (Z-Index context).
+A organização de pastas segue o padrão modular para facilitar a manutenção:
 
-Micro-interações:
+```bash
 
-Hover States: Cards que levitam e acendem ao passar o mouse.
-
-Feedback Visual: Botões que mudam de estado (loading/disabled) durante requisições assíncronas simuladas.
-
-Transições de Página: Animação suave (fade-in-up e slide) entre a Landing Page e o Dashboard sem recarregar a página (DOM Manipulation).
-
-Data Viz (Visualização de Dados):
-
-Velocímetros SVG Dinâmicos: Renderizados via JavaScript com stroke-dasharray calculado matematicamente baseando-se na pontuação (0-100).
-
-Barras de Progresso Condicionais: Mudança de gradientes CSS baseada em lógica JS (Ex: >90% torna-se vermelho/crítico).
-
-
-🛠️ Arquitetura Técnica
-
-O código segue padrões modernos de desenvolvimento Front-End sem a necessidade de bundlers (Webpack/Vite), focando na performance nativa do navegador.
-
-1. Gestão de Estado (State Management)
-Embora não use Redux ou Context API, implementei um padrão de gerenciamento de estado local simples e reativo:
-
-```
-
-JavaScript
-
-const app = {
-    state: {
-        currentCustomers: [], // Fonte única da verdade
-        isLoading: false
-    },
-    // O estado é atualizado e dispara a re-renderização do DOM automaticamente
-    updateLocalData() {
-        this.state.currentCustomers = MockDB.getAll().sort((a, b) => b.churn_risk - a.churn_risk);
-        this.renderDashboard(); // Reatividade manual
-    }
-};
+src/
+├── contexts/      # Context API (ex: AuthContext.tsx)
+├── pages/         # Páginas principais (Login, Dashboard, RegisterUser)
+├── components/    # Componentes reutilizáveis
+├── styles/        # Estilos globais e configurações
+├── App.tsx        # Configuração de rotas e providers
+├── main.tsx       # Ponto de entrada da aplicação
+└── vite-env.d.ts  # Declaração de tipos do Vite
 
 ```
 
+---
 
-2. Componentização via Template Strings
-Ao invés de JSX, utilizei o poder das Template Strings (ES6) para criar componentes funcionais puros que retornam HTML dinâmico, facilitando a manutenção e leitura:
+🚀 **Como Executar o Projeto**
+Siga os passos abaixo para rodar a aplicação em sua máquina local.
 
+Pré-requisitos
+Node.js (versão 18 ou superior)
+
+Gerenciador de pacotes (npm, yarn ou pnpm)
+Instalação
+1. Clone o repositório:
+
+```Bash
+
+git clone [https://github.com/NextHorizon-Squad17/ChurnInsight-Frontend.git] (https://github.com/NextHorizon-Squad17/ChurnInsight-Frontend.git)
+
+```
+2. Entre na pasta do projeto:
+
+```Bash
+
+cd next-horizon-frontend
 
 ```
 
-JavaScript
+3. Instale as dependências:
 
-// Exemplo de Componente Funcional em Vanilla JS
-renderCustomerMetrics(c) {
-    return `
-        <div class="grid grid-cols-4 gap-6">
-            ${c.payment_history.map(status => `...`).join('')}
-        </div>
-    `;
-}
+```Bash
 
+npm install
 
 ```
 
+---
 
-3. Mock Database & Assincronismo
-Simulação de um backend RESTful utilizando Promises e setTimeout para criar uma experiência realista de latência de rede e estados de carregamento (Loading Spinners):
+**Rodando o Servidor de Desenvolvimento**
+Para iniciar o projeto localmente:
 
-Métodos: create, update, delete.
+```Bash
 
-Simulação de latência de IA (1.5s) para gerar "suspense" na UX.
-
-
-💻 Tecnologias & Ferramentas
-
-HTML5 Semântico: Estrutura acessível e organizada.
-
-Tailwind CSS (CDN): Utilizado para estilização atômica, responsividade e Dark Mode nativo. Configuração customizada no <script> para estender a paleta de cores (midnight, primary, glow).
-
-JavaScript (ES6+):
-
-Arrow Functions.
-
-Async/Await.
-
-DOM Manipulation API.
-
-Local Storage (para persistência de tema Dark/Light).
-
-CSS3 Animations: Keyframes customizados (@keyframes) para efeitos de entrada e pulse.
-
-
-📂 Estrutura do Código
+npm run dev
 
 ```
 
-Bash
+O terminal exibirá o link local (geralmente http://localhost:5173/).
 
-/src
-│
-├── index.html      # Entry Point (DOM inicial e Configuração Tailwind)
-├── style.css       # Estilos globais, Scrollbars e Keyframes complexos
-└── script.js       # Core Application:
-    ├── MockDB      # Camada de Dados (Model)
-    ├── App Logic   # Camada de Controle (Controller)
-    └── Renderers   # Camada de Visualização (View Components)
+🤝 Contribuição
+Este projeto faz parte do portfólio desenvolvido durante a formação na Oracle Next Education (ONE) e transição de carreira para tecnologia.
 
-```
-
-
-🚀 Como Executar
-
-
-Simples, leve e rápido. Sem npm install.
-
-1. Clone o repositório. [https://github.com/NextHorizon-Squad17/ChurnInsight-Frontend.git]
-
-2. Abra o index.html em qualquer navegador moderno.
-
-3. (Opcional) Use a extensão "Live Server" no VSCode para hot-reload.
+Desenvolvido por [Rômulo Machado] https://github.com/RomuloFelipe1309
 
 
 
-🔮 Melhorias Front-End Futuras
-
-[ ] Refatoração para React ou Vue.js para escalabilidade de componentes.
-
-[ ] Adição de TypeScript para tipagem forte das entidades de Cliente.
-
-[ ] Implementação de Chart.js ou Recharts para gráficos de histórico complexos.
-
-[ ] Testes Unitários com Jest ou Vitest.
-
-<p align="center"> Desenvolvido por [https://github.com/RomuloFelipe1309] | Front-End Developer </p>
