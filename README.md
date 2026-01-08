@@ -87,7 +87,7 @@ npm run dev
 O terminal exibirá o link local (geralmente http://localhost:5173/).
 
 🤝 Contribuição
-Este projeto faz parte do portfólio desenvolvido durante a formação na Oracle Next Education (ONE) e transição de carreira para tecnologia.
+Este projeto faz parte do portfólio desenvolvido pelo Squad 17 Churn Insight- Next Horizon, durante o Hackthon promovido pela Oracle, em parceria com as empresa Alura e No Country.
 
 Desenvolvido por [Rômulo Machado] https://github.com/RomuloFelipe1309
 
