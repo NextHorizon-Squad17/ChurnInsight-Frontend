@@ -1,75 +1,87 @@
-# React + TypeScript + Vite
+# 🚀 Next Horizon - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bem-vindo ao repositório frontend do **Next Horizon**, uma aplicação focada na previsão e análise de *churn* de clientes para empresas de telecomunicações. Este projeto consome dados de inteligência artificial para fornecer insights visuais e estratégicos.
 
-Currently, two official plugins are available:
+## 📋 Sobre o Projeto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+O **Next Horizon** é um dashboard interativo desenvolvido para auxiliar gestores na tomada de decisão. A interface permite o gerenciamento de usuários e a visualização de métricas preditivas geradas por modelos de Data Science.
 
-## React Compiler
+### Funcionalidades Atuais
+* **Autenticação Segura:** Sistema de Login e contexto de autenticação global.
+* **Rotas Protegidas:** Controle de acesso a páginas privadas (Dashboard, Registro).
+* **Navegação:** Roteamento via React Router Dom.
+* **Interface Moderna:** Estilização responsiva e ágil com Tailwind CSS.
+* **Tipagem Estrita:** Código robusto e escalável utilizando TypeScript.
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## 🛠️ Tecnologias Utilizadas
 
-Note: This will impact Vite dev & build performances.
+Este projeto foi desenvolvido com as seguintes tecnologias:
 
-## Expanding the ESLint configuration
+* **[React](https://reactjs.org/)** (v18) - Biblioteca para construção de interfaces.
+* **[Vite](https://vitejs.dev/)** - Build tool e servidor de desenvolvimento ultra-rápido.
+* **[TypeScript](https://www.typescriptlang.org/)** - Superset JavaScript para tipagem estática.
+* **[Tailwind CSS](https://tailwindcss.com/)** - Framework de utilitários CSS.
+* **[React Router Dom](https://reactrouter.com/)** - Gerenciamento de rotas.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📂 Estrutura do Projeto
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+A organização de pastas segue o padrão modular para facilitar a manutenção:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+```bash
+src/
+├── contexts/      # Context API (ex: AuthContext.tsx)
+├── pages/         # Páginas principais (Login, Dashboard, RegisterUser)
+├── components/    # Componentes reutilizáveis
+├── styles/        # Estilos globais e configurações
+├── App.tsx        # Configuração de rotas e providers
+├── main.tsx       # Ponto de entrada da aplicação
+└── vite-env.d.ts  # Declaração de tipos do Vite
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+---
+🚀 **Como Executar o Projeto**
+Siga os passos abaixo para rodar a aplicação em sua máquina local.
+
+Pré-requisitos
+Node.js (versão 18 ou superior)
+
+Gerenciador de pacotes (npm, yarn ou pnpm)
+
+**Instalação**
+
+1. Clone o repositório:
+
+```Bash
+
+git clone [https://github.com/NextHorizon-Squad17/ChurnInsight-Frontend.git](https://github.com/NextHorizon-Squad17/ChurnInsight-Frontend.git)
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Entre na pasta do projeto:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```Bash
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+cd next-horizon-frontend
+
 ```
+3. Instale as dependências:
+
+```Bash
+
+npm install
+
+```
+
+Rodando o Servidor de Desenvolvimento
+Para iniciar o projeto localmente:
+
+```Bash
+
+npm run dev
+
+```
+O terminal exibirá o link local (geralmente http://localhost:5173/).
+---
+🤝 Contribuição
+Este projeto faz parte do portfólio desenvolvido pelo Squad 17, Churn Insight - Next Horizon, durante o Hackathon promovido pela Oracle em parceria com a Alura e No Country.
+
+Desenvolvido por [Rômulo Machado] https://github.com/RomuloFelipe1309
