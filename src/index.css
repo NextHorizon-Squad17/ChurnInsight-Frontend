@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-background text-slate-800 transition-colors duration-300;
+}
+
+/* Estilos para quando o modo Dark estiver ativo */
+.dark body {
+  @apply bg-slate-950 text-slate-200;
+}
+
+/* Barra de rolagem estilizada */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-700 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-horizon-blue;
+}
