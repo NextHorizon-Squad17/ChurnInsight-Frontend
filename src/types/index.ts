@@ -1,3 +1,10 @@
+// src/types/index.ts
+
+// 1. Re-exporta tudo de dashboard.ts
+// Isso permite que você importe qualquer coisa usando apenas: import { ... } from '../types';
+export * from './dashboard';
+
+// 2. Definições de Usuário (Auth)
 export interface User {
     id: string;
     username: string;
@@ -9,12 +16,4 @@ export interface AuthContextType {
     isAuthenticated: boolean;
     login: (token: string, userData: User) => void;
     logout: () => void;
-}
-
-// Reutilizando os tipos do dashboard que já existiam
-export interface DashboardData {
-    churnScore: number;
-    totalCustomers: number;
-    accuracy: number;
-    riskDistribution: number[];
 }
