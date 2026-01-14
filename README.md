@@ -1,4 +1,4 @@
-```markdown
+
 # 🚀 Next Horizon | ChurnInsight Frontend
 
 > **Plataforma de Inteligência Preditiva com IA e Design Cyberpunk**
@@ -118,6 +118,7 @@ src/
 └── types/            # Interfaces TypeScript
 
 ```
+
 
 ## 🤝 Integração Backend
 
