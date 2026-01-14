@@ -13,24 +13,26 @@ export interface SelectedClient {
   sentiment: 'happy' | 'neutral' | 'sad';
 }
 
+// --- INTEGRAÇÃO COM IA (NOVO) ---
+
 export interface PredictionRequest {
-  Gender: string;
+  Gender: "Male" | "Female";
   SeniorCitizen: number;
-  Partner: string;
-  Dependents: string;
+  Partner: "Yes" | "No";
+  Dependents: "Yes" | "No";
   TenureMonths: number;
-  PhoneService: string;
-  MultipleLines: string;
-  InternetService: string;
-  OnlineSecurity: string;
-  OnlineBackup: string;
-  DeviceProtection: string;
-  TechSupport: string;
-  StreamingTV: string;
-  StreamingMovies: string;
-  Contract: string;
-  PaperlessBilling: string;
-  PaymentMethod: string;
+  PhoneService: "Yes" | "No";
+  MultipleLines: "Yes" | "No" | "No phone service";
+  InternetService: "DSL" | "Fiber optic" | "No";
+  OnlineSecurity: "Yes" | "No" | "No internet service";
+  OnlineBackup: "Yes" | "No" | "No internet service";
+  DeviceProtection: "Yes" | "No" | "No internet service";
+  TechSupport: "Yes" | "No" | "No internet service";
+  StreamingTV: "Yes" | "No" | "No internet service";
+  StreamingMovies: "Yes" | "No" | "No internet service";
+  Contract: "Month-to-month" | "One year" | "Two year";
+  PaperlessBilling: "Yes" | "No";
+  PaymentMethod: "Electronic check" | "Mailed check" | "Bank transfer (automatic)" | "Credit card (automatic)";
   MonthlyCharges: number;
   TotalCharges: number;
 }
