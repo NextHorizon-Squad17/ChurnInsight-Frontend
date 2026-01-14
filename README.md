@@ -1,56 +1,58 @@
+```markdown
 # 🚀 Next Horizon | ChurnInsight Frontend
 
 > **Plataforma de Inteligência Preditiva com IA e Design Cyberpunk**
 > *Squad 17 - Oracle Next Education (ONE)*
 
-![React](https://img.shields.io/badge/Frontend-React%20%7C%20Vite-blue)
-![Tailwind](https://img.shields.io/badge/Style-Tailwind%20CSS-38bdf8)
+![React](https://img.shields.io/badge/Frontend-React_18-blue?logo=react)
+![Vite](https://img.shields.io/badge/Build-Vite-purple?logo=vite)
+![Tailwind](https://img.shields.io/badge/Style-Tailwind_CSS-38bdf8?logo=tailwindcss)
+![Docker](https://img.shields.io/badge/Deploy-Docker-2496ED?logo=docker)
 ![Status](https://img.shields.io/badge/Status-Concluído-success)
 
 ## 📄 Sobre o Projeto
 
-O **Next Horizon** é a interface moderna para o sistema de predição de Churn do Squad 17. Diferente de dashboards comuns, este projeto foca na **experiência do usuário** e na **interatividade**, utilizando simulações em tempo real e assistentes virtuais.
+O **Next Horizon** é a interface moderna para o sistema de predição de Churn do Squad 17. Diferente de dashboards comuns, este projeto foca na **experiência do usuário** e na **interatividade**, utilizando simulações em tempo real e assistentes virtuais conectados a modelos de Machine Learning.
 
-A aplicação consome a API Java Spring Boot para exibir métricas globais e utiliza lógica local para simular análises individuais de clientes com geração de avatares.
+A aplicação consome a API Java Spring Boot para autenticação, métricas globais e predição de risco.
 
 ---
 
 ## ✨ Funcionalidades Premium
 
-### 🧠 Inteligência Artificial & Simulação
-* **Next AI Assistant:** Chatbot flutuante integrado que responde a dúvidas sobre os dados.
-* **Simulador de Clientes:** Gera perfis de clientes fictícios com **Avatares Únicos** (via DiceBear API) e calcula o risco de Churn em tempo real.
-* **Velocímetro de Risco (Risk Gauge):** Visualização dinâmica da probabilidade de saída do cliente.
+### 🔐 Autenticação & Segurança
+* **Login & Registro:** Sistema completo de cadastro e login de usuários com persistência de sessão (JWT).
+* **Controle de Acesso (RBAC):** Proteção de rotas onde apenas usuários com perfil **ADMIN** acessam o Painel Administrativo.
+* **Layouts Protegidos:** Redirecionamento automático para login caso o usuário não esteja autenticado.
+
+### 🧠 Inteligência Artificial (Real-Time)
+* **Simulador de Retenção (AI Assistant):** Formulário lateral onde o analista insere dados do cliente (Contrato, Mensalidade, Serviços) e recebe:
+    * Probabilidade exata de Churn (%).
+    * Classificação de Risco (Alto/Médio/Baixo).
+    * **Estratégia de Retenção** gerada dinamicamente.
+* **Velocímetro de Risco (Risk Gauge):** Visualização dinâmica da probabilidade de saída.
 
 ### 🎨 UI/UX Avançado (Design System)
 * **Modo Cyberpunk (Dark Mode):** Tema escuro profundo com detalhes em Neon (Cyan, Roxo e Dourado) inspirado na identidade visual da marca.
 * **Modo Diurno (Light Mode):** Interface corporativa limpa para ambientes claros.
-* **Animações Suaves:** Transições de fade-in, elementos pulsantes e hover effects interativos.
-
-### 📊 Dados & Métricas
-* **KPIs em Tempo Real:** Conexão direta com o Backend para buscar Churn Rate, MRR e Total de Clientes.
-* **Gráficos Interativos:** Gráficos de Rosca (Chart.js) mostrando a segmentação da base.
+* **Dashboard Interativo:** KPIs de Churn Score, Total de Clientes e Precisão do Modelo atualizados via API.
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
 * **Core:** React 18, Vite, TypeScript
-* **Estilização:** Tailwind CSS (Custom Theme)
+* **Roteamento:** React Router DOM v6 (Rotas Privadas e Públicas)
+* **Estilização:** Tailwind CSS (Custom Theme "Horizon")
 * **Gráficos:** Chart.js, React-Chartjs-2
-* **Ícones:** Lucide React
-* **Conexão API:** Axios
-* **Avatares:** DiceBear API (External)
+* **Conexão API:** Axios (com Interceptors para Bearer Token)
+* **Container:** Docker & Nginx
 
 ---
 
 ## 🚀 Como Rodar o Projeto
 
-### Pré-requisitos
-* Node.js (v18+)
-* Backend Java rodando na porta 8080 (Opcional para a simulação, obrigatório para os KPIs globais)
-
-### Passo a Passo
+### Opção 1: Ambiente de Desenvolvimento (Node.js)
 
 1.  **Clone o repositório**
     ```bash
@@ -64,18 +66,33 @@ A aplicação consome a API Java Spring Boot para exibir métricas globais e uti
     ```
 
 3.  **Configure as Variáveis de Ambiente**
-    Crie um arquivo `.env` na raiz do projeto:
+    Crie um arquivo `.env` na raiz (baseado no `.env.example`):
     ```env
-    VITE_API_URL=http://localhost:8080/api
+    VITE_API_URL=http://localhost:8080
     ```
 
-4.  **Inicie o Servidor de Desenvolvimento**
+4.  **Inicie o Servidor**
     ```bash
     npm run dev
     ```
+    Acesse: `http://localhost:5173`
 
-5.  **Acesse a Aplicação**
-    Abra `http://localhost:5173` no seu navegador.
+---
+
+### Opção 2: Produção (Docker)
+
+O projeto já conta com um `Dockerfile` otimizado em múltiplos estágios (Build -> Nginx Alpine).
+
+1.  **Build da Imagem**
+    ```bash
+    docker build -t churn-frontend .
+    ```
+
+2.  **Rodar o Container**
+    ```bash
+    docker run -p 80:80 churn-frontend
+    ```
+    Acesse: `http://localhost`
 
 ---
 
@@ -85,27 +102,44 @@ A aplicação consome a API Java Spring Boot para exibir métricas globais e uti
 src/
 ├── assets/           # Imagens e Logos
 ├── components/       # Componentes Reutilizáveis
-│   ├── AiAssistant.tsx   # Chatbot Flutuante
-│   ├── ClientSearch.tsx  # Lógica de Simulação
-│   ├── ScoreGauge.tsx    # Gráfico de Velocímetro
-│   ├── Sidebar.tsx       # Navegação Lateral
-│   ├── ThemeToggle.tsx   # Botão Sol/Lua
+│   ├── AiAssistant.tsx   # Simulador de Risco (Conecta na API)
+│   ├── AdminRoute.tsx    # Proteção de rotas Admin
+│   ├── Sidebar.tsx       # Menu Lateral
 │   └── ...
+├── contexts/         # Gerenciamento de Estado Global
+│   └── AuthContext.tsx   # Lógica de Login/Logout e Token
+├── layouts/          # Estruturas de Página (MainLayout)
+├── pages/            # Telas da Aplicação
+│   ├── Login.tsx         # Tela de Acesso
+│   ├── Dashboard.tsx     # Visão Geral (KPIs)
+│   ├── AdminDashboard.tsx# Gestão de Usuários
+│   └── RegisterUser.tsx  # Criação de Conta
 ├── services/         # Configuração do Axios (api.ts)
-├── types/            # Interfaces TypeScript
-└── App.tsx           # Tela Principal (Dashboard)
-🤝 Integração Backend (Squad 17)
-Este frontend espera que a API Java forneça os dados no seguinte formato JSON no endpoint /dashboard/summary:
-
-```JSON
-
-{
-  "churnRate": 4.8,
-  "totalCustomers": 1240,
-  "accuracy": 94.2,
-  "riskDistribution": [30, 45, 25]
-}
+└── types/            # Interfaces TypeScript
 
 ```
 
-<p align="center"> Desenvolvido por [Rômulo Machado] <strong>https://github.com/RomuloFelipe1309</strong> </p>
+## 🤝 Integração Backend
+
+Este frontend espera os seguintes endpoints da API Java:
+
+* `POST /auth/login`: Para autenticação (retorna Token JWT).
+* `POST /auth/register`: Para criar novos analistas.
+* `POST /api/churn/predict`: Para o Simulador de IA.
+* `GET /users`: Para o Dashboard Admin.
+
+---
+
+<p align="center">
+Desenvolvido por <strong>Rômulo Machado</strong> <strong>https://github.com/RomuloFelipe1309</strong> e <strong>Squad 17-Churn Insight- Next Horizon</strong> 
+
+
+
+
+
+Oracle Next Education (ONE)
+</p>
+
+```
+
+```
