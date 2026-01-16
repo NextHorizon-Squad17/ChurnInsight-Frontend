@@ -1,9 +1,16 @@
-// ... imports
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
+import MainLayout from './layouts/MainLayout';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import AdminDashboard from './pages/AdminDashboard';
+import AdminRoute from './components/AdminRoute'; // Certifique-se que este import está correto
 
 function App() {
   return (
-    <AuthProvider>
-      <BrowserRouter>
+    <BrowserRouter> {/* 1. Router deve ser o pai de todos */}
+      <AuthProvider> {/* 2. Provider agora tem acesso ao contexto de navegação */}
         <Routes>
           {/* Rotas Públicas */}
           <Route path="/login" element={<Login />} />
@@ -14,14 +21,19 @@ function App() {
           </Route>
 
           {/* ROTA SECRETA DE ADMIN */}
-          <Route element={<MainLayout />}> {/* Usa o mesmo layout (sidebar) */}
-             <Route element={<AdminRoute />}> {/* Mas com proteção extra */}
+          <Route element={<MainLayout />}>
+             <Route element={<AdminRoute />}>
                 <Route path="/admin" element={<AdminDashboard />} />
              </Route>
           </Route>
 
+          {/* Redirecionamento padrão (opcional, mas recomendado) */}
+          <Route path="/" element={<Login />} />
+          
         </Routes>
-      </BrowserRouter>
-    </AuthProvider>
+      </AuthProvider>
+    </BrowserRouter>
   );
 }
+
+export default App;

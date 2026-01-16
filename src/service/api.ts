@@ -22,8 +22,8 @@ api.interceptors.request.use(config => {
 
 export const churnService = {
     predictChurn: async (data: PredictionRequest): Promise<PredictionResponse> => {
-        // Rota que conecta no Controller Java
-        const response = await api.post<PredictionResponse>('/api/churn/predict', data);
+        // CORREÇÃO: A rota no backend é apenas '/predict', não '/api/churn/predict'
+        const response = await api.post<PredictionResponse>('/predict', data);
         return response.data;
     }
 };
