@@ -1,9 +1,9 @@
-import { Outlet, Navigate } from 'react-router-dom';
+import { Outlet, Navigate } from 'react-router';
 import { Sidebar } from '../components/Sidebar';
-import { AiAssistant } from '../components/AiAssistant';
+import AiAssistant from '../components/AiAssistant';
 import { useAuth } from '../contexts/AuthContext';
 
-export function MainLayout() {
+export default function MainLayout() {
     const { isAuthenticated } = useAuth();
 
     // Proteção de rota: Se não estiver logado, manda pro Login

@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
-import { api } from '../service/api'; // Ajuste o caminho se necessário
+// import { api } from '../service/api'; // Ajuste o caminho se necessário
 import { DashboardData, SelectedClient } from '../types/dashboard'; // Tipos antigos
 import { KpiCard } from '../components/KpiCard';
-import { ChartSection } from '../components/ChartSection'; // Se existir
+// import { ChartSection } from '../components/ChartSection'; // Se existir
 import { ClientSearch } from '../components/ClientSearch';
 import { ScoreGauge } from '../components/ScoreGauge';
 import { ThemeToggle } from '../components/ThemeToggle';
 
-export function Dashboard() {
+export default function Dashboard() {
     // ... (Copie aqui toda a lógica de estado e useEffect do seu App.tsx antigo)
     const [data, setData] = useState<DashboardData | null>(null);
     const [loading, setLoading] = useState(true);
@@ -32,7 +32,7 @@ export function Dashboard() {
             {/* Linha 1: KPIs */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                  <KpiCard title="Churn Score" value={data?.churnScore + "%"} color="purple" trend={1.2} />
-                 <KpiCard title="Clientes" value={data?.totalCustomers} color="brand" />
+                 <KpiCard title="Clientes" value={data?.totalCustomers!} color="brand" />
                  <KpiCard title="Precisão" value={data?.accuracy + "%"} color="cyan" />
             </div>
 

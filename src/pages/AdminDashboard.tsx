@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { api } from '../service/api';
 
-export function AdminDashboard() {
+export default function AdminDashboard() {
     const [users, setUsers] = useState<any[]>([]);
 
     useEffect(() => {

@@ -1,7 +1,7 @@
-import { Navigate, Outlet } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router';
 import { useAuth } from '../contexts/AuthContext';
 
-export const AdminRoute = () => {
+export default function AdminRoute () {
     const { user, isAuthenticated } = useAuth();
 
     // 1. Se não tá logado, manda pro login

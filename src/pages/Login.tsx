@@ -1,13 +1,15 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router';
 import { useAuth } from '../contexts/AuthContext';
-import { Logo } from '../componets/Logo'; // Lembre de corrigir o nome da pasta depois
+import Logo from '../components/Logo'; // Lembre de corrigir o nome da pasta depois
 import { api } from '../service/api';
 
-export function Login() {
+export const x = "fsdfs";
+
+export default function Login() {
     const navigate = useNavigate();
     const { login } = useAuth();
-    const [formData, setFormData] = useState({ username: '', password: '' });
+    const [formData, setFormData] = useState({ email: '', password: '' });
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
 
@@ -15,7 +17,7 @@ export function Login() {
         e.preventDefault();
         setLoading(true);
         setError('');
-
+                    
         try {
             // Ajuste a rota conforme seu Backend AuthController
             const response = await api.post('/auth/login', formData);
@@ -28,8 +30,8 @@ export function Login() {
             // O ideal é o backend retornar user: { username, role, id } junto com o token
             const userData = { 
                 id: '1', 
-                username: formData.username, 
-                role: formData.username === 'admin' ? 'ADMIN' : 'USER' 
+                email: formData.email, 
+                role: formData.email === 'admin' ? 'ADMIN' : 'USER' 
             }; 
 
             login(token, userData as any); // Type assertion temporário
@@ -51,13 +53,13 @@ export function Login() {
 
                 <form onSubmit={handleLogin} className="space-y-4">
                     <div>
-                        <label className="text-slate-400 text-sm">Usuário</label>
+                        <label className="text-slate-400 text-sm">E-mail</label>
                         <input 
-                            type="text" 
+                            type="email" 
                             required
                             className="w-full bg-slate-800 border border-slate-700 rounded p-3 text-white focus:border-blue-500 outline-none"
-                            value={formData.username}
-                            onChange={e => setFormData({...formData, username: e.target.value})}
+                            value={formData.email}
+                            onChange={e => setFormData({...formData, email: e.target.value})}
                         />
                     </div>
                     <div>
