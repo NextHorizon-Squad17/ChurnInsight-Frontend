@@ -24,7 +24,7 @@ jobs:
 
       - name: Build frontend (Vite)
         env:
-          VITE_API_BASE_URL: ${{ secrets.VITE_API_BASE_URL }}
+          VITE_API_BASE_URL: ${{ secrets.VITE_API_URL }}
         run: npm run build
 
       - name: Deploy dist to OCI (temp directory)
