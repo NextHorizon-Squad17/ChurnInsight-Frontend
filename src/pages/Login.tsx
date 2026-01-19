@@ -1,10 +1,8 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router';
 import { useAuth } from '../contexts/AuthContext';
-import Logo from '../components/Logo'; // Lembre de corrigir o nome da pasta depois
+import Logo from '../components/Logo';
 import { api } from '../service/api';
-
-export const x = "fsdfs";
 
 export default function Login() {
     const navigate = useNavigate();
@@ -17,7 +15,7 @@ export default function Login() {
         e.preventDefault();
         setLoading(true);
         setError('');
-                    
+
         try {
             // Ajuste a rota conforme seu Backend AuthController
             const response = await api.post('/auth/login', formData);

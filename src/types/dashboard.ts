@@ -10,7 +10,10 @@ export interface SelectedClient {
   name: string;
   avatarUrl: string;
   riskScore: number;
-  sentiment: 'happy' | 'neutral' | 'sad';
+  sentiment: 'happy' | 'sad';
+  prediction?: number;
+  riskLevel?: string;
+  retentionStrategy?: string;
 }
 
 // --- INTEGRAÇÃO COM IA (NOVO) ---

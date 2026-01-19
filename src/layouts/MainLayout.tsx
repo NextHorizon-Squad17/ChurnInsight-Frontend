@@ -1,6 +1,5 @@
 import { Outlet, Navigate } from 'react-router';
 import { Sidebar } from '../components/Sidebar';
-import AiAssistant from '../components/AiAssistant';
 import { useAuth } from '../contexts/AuthContext';
 
 export default function MainLayout() {
@@ -17,7 +16,6 @@ export default function MainLayout() {
             <main className="flex-1 flex flex-col w-full overflow-y-auto p-8 relative">
                 <Outlet /> {/* Aqui entra o Dashboard ou outras páginas */}
             </main>
-            <AiAssistant />
         </div>
     );
 }
