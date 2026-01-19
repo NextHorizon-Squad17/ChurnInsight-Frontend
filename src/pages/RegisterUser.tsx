@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router';
 import { api } from '../service/api'; // Importando a instância configurada
-import { Logo } from '../components/Logo'; // Ajuste o caminho se a pasta ainda for 'componets'
+import Logo from '../components/Logo'; // Ajuste o caminho se a pasta ainda for 'componets'
 
 export function RegisterUser() {
     const navigate = useNavigate();
