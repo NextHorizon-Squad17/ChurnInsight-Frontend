@@ -3,7 +3,7 @@ name: Frontend CI/CD - Develop
 on:
   push:
     branches:
-      - develop
+      - prod
 
 jobs:
   build-and-deploy:
@@ -27,7 +27,6 @@ jobs:
           VITE_API_BASE_URL: ${{ secrets.VITE_API_BASE_URL }}
         run: npm run build
 
-      # 1️⃣ Envia o build para um diretório TEMPORÁRIO (usuário opc)
       - name: Deploy dist to OCI (temp directory)
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -38,7 +37,6 @@ jobs:
           target: "/home/opc/frontend_tmp"
           strip_components: 1
 
-      # 2️⃣ Publica no Nginx com sudo (seguro)
       - name: Publish frontend to Nginx
         uses: appleboy/ssh-action@v1.0.3
         with:
