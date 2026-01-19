@@ -3,7 +3,7 @@ name: Frontend CI/CD - Develop
 on:
   push:
     branches:
-      - develop
+      - prod
 
 jobs:
   build-and-deploy:
