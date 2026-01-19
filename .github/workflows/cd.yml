@@ -3,7 +3,7 @@ name: Frontend CI/CD - Develop
 on:
   push:
     branches:
-      - prod
+      - develop
 
 jobs:
   build-and-deploy:
@@ -24,24 +24,30 @@ jobs:
 
       - name: Build frontend (Vite)
         env:
-          VITE_API_BASE_URL: ${{ secrets.VITE_API_URL }}
+          VITE_API_BASE_URL: ${{ secrets.VITE_API_BASE_URL }}
         run: npm run build
 
-      - name: Deploy dist to OCI (Nginx root)
+      # 1️⃣ Envia o build para um diretório TEMPORÁRIO (usuário opc)
+      - name: Deploy dist to OCI (temp directory)
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.OCI_HOST }}
           username: ${{ secrets.OCI_USER }}
           key: ${{ secrets.OCI_SSH_KEY }}
           source: "dist/*"
-          target: "/var/www/html_8081"
+          target: "/home/opc/frontend_tmp"
           strip_components: 1
 
-      - name: Reload Nginx
+      # 2️⃣ Publica no Nginx com sudo (seguro)
+      - name: Publish frontend to Nginx
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.OCI_HOST }}
           username: ${{ secrets.OCI_USER }}
           key: ${{ secrets.OCI_SSH_KEY }}
           script: |
+            sudo rm -rf /var/www/html_8081/*
+            sudo cp -r /home/opc/frontend_tmp/* /var/www/html_8081/
+            sudo chown -R nginx:nginx /var/www/html_8081
+            sudo restorecon -Rv /var/www/html_8081
             sudo systemctl reload nginx
